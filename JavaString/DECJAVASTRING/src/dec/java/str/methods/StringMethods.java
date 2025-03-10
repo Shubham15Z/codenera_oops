@@ -13,6 +13,8 @@ public class StringMethods
 		
 		String n = "I am";
 		
+		System.out.println(s2.indexOf("z"));
+		
 //		PRINT STRING CHARACTERS
 //		for(int i = 0; i < s.length(); i++)
 //		{
@@ -54,8 +56,8 @@ public class StringMethods
 //		System.out.println(s.startsWith("i"));
 		
 //		ENDSWITH
-		System.out.println(s.endsWith(n));
-		System.out.println(s.endsWith("e"));
+//		System.out.println(s.endsWith(n));
+//		System.out.println(s.endsWith("e"));
 	}
 	public static void main(String[] args) 
 	{
