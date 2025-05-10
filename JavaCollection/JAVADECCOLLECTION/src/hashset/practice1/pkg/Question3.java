@@ -1,0 +1,29 @@
+/*
+23. Symmetric Difference  
+    - Question: Find elements that are only in one of the two sets 
+    (symmetric difference).
+    - Input: {1, 2, 3}, {2, 3, 4}
+    - Output: {1, 4}
+ */
+package hashset.practice1.pkg;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class Question3 
+{
+	public static void main(String[] args) 
+	{
+		HashSet<Integer> h1 = new HashSet<Integer>(Arrays.asList(1,2,3));
+		HashSet<Integer> h2 = new HashSet<Integer>(Arrays.asList(2,3,4));
+		
+		HashSet<Integer> result = new HashSet<>(h1);
+		result.addAll(h2);
+		
+		HashSet<Integer> intersection = new HashSet<Integer>(h1);
+		intersection.retainAll(h2);
+		
+		result.removeAll(intersection);	
+		System.out.println(result);
+	}
+}
