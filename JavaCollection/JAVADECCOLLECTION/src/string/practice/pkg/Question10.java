@@ -15,34 +15,49 @@ import java.util.Arrays;
 
 public class Question10 
 {
-	public static void checkString(String s)
+	public static boolean isVowel(char ch)
 	{
-		String s1 = s.replaceAll("[^a-zA-Z]", "");
-		String vowel = "aeiou";
+		return "aeiou".indexOf(ch) != -1;
+	}
+	public static int checkString(String s1)
+	{
 		int vowelCount = 0;
 		int consonentCount = 0;
 		
 		for(int i = 0; i < s1.length(); i++)
 		{
 			char ch = s1.charAt(i);
-			if(ch == 'a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+			if(ch == '?')
 			{
 				vowelCount++;
+				consonentCount++;
+			}
+			else if(isVowel(ch))
+			{
+				vowelCount++;
+				consonentCount = 0;
 			}
 			else
 			{
 				consonentCount++;
+				vowelCount = 0;
+			}
+			
+			if(vowelCount > 5 || consonentCount > 3)
+			{	
+				return 0;
 			}
 		}
-		
-		if(vowelCount > 5 && consonentCount > 3)
-		System.out.println(vowelCount+" "+consonentCount);
-//		System.out.println(Arrays.toString(ch));
+		return 1;	
 	}
 	
 	public static void main(String[] args)
 	{
 		String s = "aeioup??";
-		checkString(s);
+		int res = checkString(s);
+		if(res == 1)
+			System.out.println("GOOD");
+		else
+			System.out.println("BAD");
 	}
 }
